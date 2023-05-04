@@ -17,7 +17,7 @@ def hello_world():
 @app.route('/', methods=['POST'])
 def predict():
     imagefile = request.files['imagefile']
-    image_path = "./images/" + imagefile.filename
+    image_path = "static/images/temp.png"
     imagefile.save(image_path)
 
     model = load_model('./model/chest_cancer_model_jerico.h5')
@@ -34,14 +34,23 @@ def predict():
         pred = np.argmax(_model.predict(input_arr_img))
         # Printing Model Prediction
         pred_score = _model.predict(input_arr_img)
-        print(classes_dir)
-        print(pred_score * 100)
-        print(classes_dir[pred])
+        # print(classes_dir)
+        # print(pred_score)
+        # print(classes_dir[pred])
         pred_score = np.array(pred_score)
-        
-        np.set_printoptions(formatter={'float_kind': "{:.10f}".format})
 
-        return [classes_dir, pred_score, classes_dir[pred]]
+        # Normalisasi skor
+        total_skor = sum(pred_score[0])
+        skor_normal = [s/total_skor for s in pred_score[0]]
+
+        # Konversi skor ke persentase
+        skor_persen = [round(s * 100, 2) for s in skor_normal]
+        # print('setelah ubah')
+        print(skor_persen)
+        nilai_terbesar = max(skor_persen)
+        
+
+        return [classes_dir, nilai_terbesar, classes_dir[pred]]
     
     path = image_path
     result = chestScanPrediction(path,model)
