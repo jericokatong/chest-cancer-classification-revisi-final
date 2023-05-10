@@ -2,8 +2,6 @@
 
 ### Web App Chest CT-Scan images Classification
 
-Member:
-
 - Kabo, Deo Timothy
 - Katong, Jerico Imanuel
 - Yong, Frances Rully
@@ -17,7 +15,7 @@ Instruction:
    - Tempatkan model pada "./model/(model hasil download)"
 2. Install python pada komputer anda jika belum ada pada https://www.python.org/downloads/
 3. Instal framework Flask pada komputer anda "pip install Flask". Lebih lengkap lihat https://flask.palletsprojects.com/en/2.2.x/installation/
-4. Install packages/tambahan:
+4. Install packages/library tambahan:
    - pip install tensorflow
    - pip install keras
    - pip install pillow
