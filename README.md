@@ -1,6 +1,6 @@
-#. Artificial Intelligence - Group 6
+# Artificial Intelligence - Group 6
 
-#Web App Chest CT-Scan images Classification
+## Web App Chest CT-Scan images Classification
 
 Member:
 
